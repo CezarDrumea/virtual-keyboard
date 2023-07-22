@@ -5,7 +5,7 @@ const KeyboardRightSideCenter = ({rightSideKeys}: {rightSideKeys: string[]}) => 
   return (
     <RightSideContainer>
       {rightSideKeys.map((keyName) => (
-        <LongTextKey key={keyName} $centered>
+        <LongTextKey key={keyName} $centered $topSticked>
           {keyName}
         </LongTextKey>
       ))}

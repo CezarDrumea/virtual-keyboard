@@ -6,5 +6,6 @@ interface keyboardKeyInterface {
   $color?: string;
   $rightPosition?: boolean;
   $leftPosition?: boolean;
-  $centered?: boolean
+  $centered?: boolean;
+  $topSticked?: boolean;
 }

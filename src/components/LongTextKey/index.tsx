@@ -9,15 +9,12 @@ const LongTextKey = ({
   $color,
   $rightPosition,
   $leftPosition,
-  $centered
+  $centered,
+  $topSticked
 }: keyboardKeyInterface) => {
   return (
     <KeyContainer $height={$height} $width={$width} $bgColor={$bgColor} $color={$color}>
-      <LongContent
-        $rightPosition={$rightPosition}
-        $leftPosition={$leftPosition}
-        $centered={$centered}
-      >
+      <LongContent $rightPosition={$rightPosition} $leftPosition={$leftPosition} $centered={$centered} $topSticked={$topSticked}>
         {children}
       </LongContent>
     </KeyContainer>
