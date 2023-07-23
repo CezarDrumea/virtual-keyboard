@@ -5,7 +5,7 @@ export interface KeyboardState {
   pressed: string[];
   released: string[];
   shiftPressed: boolean;
-  capsLockClicked: boolean;
+  capsLockEnabled: boolean;
 }
 
 const initialState: KeyboardState = {
@@ -13,19 +13,22 @@ const initialState: KeyboardState = {
   pressed: [],
   released: [],
   shiftPressed: false,
-  capsLockClicked: false,
+  capsLockEnabled: false,
 };
 
 export const keyboardSlice = createSlice({
   name: 'keyboard',
   initialState,
   reducers: {
-    setShiftStatus: (state, { payload }) => {
-      state.shiftPressed = payload as boolean;
+    setShiftPressed: (state, { payload }: { payload: boolean }) => {
+      state.shiftPressed = payload;
+    },
+    setCapsLockClicked: (state, { payload }: { payload: boolean }) => {
+      state.capsLockEnabled = payload;
     },
   },
 });
 
-export const { setShiftStatus } = keyboardSlice.actions;
+export const { setShiftPressed, setCapsLockClicked } = keyboardSlice.actions;
 
 export default keyboardSlice.reducer;

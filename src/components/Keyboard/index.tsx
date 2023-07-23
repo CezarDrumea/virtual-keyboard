@@ -6,7 +6,7 @@ import KeyboardLowerRow from '../KeyboardLowerRow';
 import KeyboardRightSideCenter from '../KeyboardRightSideCenter';
 import KeyboardUpperRow from '../KeyboardUpperRow';
 import { CenterContainer, KeyboardContainer } from './styled';
-import { setShiftStatus } from '../../store/keyboardSlice';
+import { setCapsLockClicked, setShiftPressed } from '../../store/keyboardSlice';
 import { useTypedSelector } from '../../store';
 
 const Keyboard = (): JSX.Element => {
@@ -14,11 +14,14 @@ const Keyboard = (): JSX.Element => {
   const shiftStatus = useTypedSelector((state) => {
     return state.keyboard.shiftPressed;
   });
+  const capsLockStatus = useTypedSelector((state) => {
+    return state.keyboard.capsLockEnabled;
+  });
 
   useEffect(() => {
     const handleShiftPress = (e: KeyboardEvent): void => {
       if (shiftStatus === e.shiftKey) return;
-      dispatch(setShiftStatus(e.shiftKey));
+      dispatch(setShiftPressed(e.shiftKey));
     };
     window.addEventListener('keydown', handleShiftPress);
     window.addEventListener('keyup', handleShiftPress);
@@ -27,6 +30,17 @@ const Keyboard = (): JSX.Element => {
       window.removeEventListener('keyup', handleShiftPress);
     };
   }, [dispatch, shiftStatus]);
+
+  useEffect(() => {
+    const handleCapsLockClick = (e: KeyboardEvent): void => {
+      if (capsLockStatus === e.getModifierState('CapsLock')) return;
+      dispatch(setCapsLockClicked(e.getModifierState('CapsLock')));
+    };
+    window.addEventListener('keydown', handleCapsLockClick);
+    return () => {
+      return window.removeEventListener('keydown', handleCapsLockClick);
+    };
+  }, [dispatch, capsLockStatus]);
 
   return (
     <KeyboardContainer>

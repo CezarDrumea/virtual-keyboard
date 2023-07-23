@@ -8,11 +8,17 @@ const KeyboardLeftSideCenter = ({ keyboardData }: { keyboardData: string[][] }):
   const shiftPressed = useTypedSelector((state) => {
     return state.keyboard.shiftPressed;
   });
+  const CapsLockEnabled = useTypedSelector((state) => {
+    return state.keyboard.capsLockEnabled;
+  });
+  const getRowIndex = (index: number): number => {
+    return index + ((+shiftPressed + +CapsLockEnabled) % 2);
+  };
 
   return (
     <LeftSideContainer>
       <KeyboardRow>
-        {keyboardData[1 + Number(shiftPressed)].map((keyName) => {
+        {keyboardData[getRowIndex(1)].map((keyName) => {
           return <ShortTextKey key={keyName}>{keyName}</ShortTextKey>;
         })}
         <LongTextKey $width="90px" $rightPosition>
@@ -23,7 +29,7 @@ const KeyboardLeftSideCenter = ({ keyboardData }: { keyboardData: string[][] }):
         <LongTextKey $width="90px" $leftPosition>
           tab
         </LongTextKey>
-        {keyboardData[3 + Number(shiftPressed)].map((keyName) => {
+        {keyboardData[getRowIndex(3)].map((keyName) => {
           return <ShortTextKey key={keyName}>{keyName}</ShortTextKey>;
         })}
       </KeyboardRow>
@@ -31,7 +37,7 @@ const KeyboardLeftSideCenter = ({ keyboardData }: { keyboardData: string[][] }):
         <LongTextKey $width="105px" $leftPosition>
           caps lock
         </LongTextKey>
-        {keyboardData[5 + Number(shiftPressed)].map((keyName) => {
+        {keyboardData[getRowIndex(5)].map((keyName) => {
           return <ShortTextKey key={keyName}>{keyName}</ShortTextKey>;
         })}
         <LongTextKey $width="105px" $rightPosition>
@@ -42,7 +48,7 @@ const KeyboardLeftSideCenter = ({ keyboardData }: { keyboardData: string[][] }):
         <LongTextKey $width="135px" $leftPosition>
           shift
         </LongTextKey>
-        {keyboardData[7 + Number(shiftPressed)].map((keyName) => {
+        {keyboardData[getRowIndex(7)].map((keyName) => {
           return <ShortTextKey key={keyName}>{keyName}</ShortTextKey>;
         })}
         <LongTextKey $width="135px" $rightPosition>

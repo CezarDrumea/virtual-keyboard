@@ -20,7 +20,10 @@ module.exports = {
   },
   plugins: ['react-refresh', 'prettier'],
   rules: {
-    'react/function-component-definition': ['error', { "namedComponents": 'arrow-function', 'unnamedComponents': 'arrow-function'}],
+    'react/function-component-definition': [
+      'error',
+      { namedComponents: 'arrow-function', unnamedComponents: 'arrow-function' },
+    ],
     '@typescript-eslint/explicit-function-return-type': 'error',
     'arrow-body-style': 'off',
     'no-param-reassign': 'off',
