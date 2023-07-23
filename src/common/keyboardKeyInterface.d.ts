@@ -1,4 +1,4 @@
-interface keyboardKeyInterface {
+interface KeyboardKeyInterface {
   children?: string;
   $height?: string;
   $width?: string;

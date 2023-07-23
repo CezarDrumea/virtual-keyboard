@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const RightSideContainer = styled.div`
   display: flex;
@@ -8,4 +8,4 @@ export const RightSideContainer = styled.div`
   height: 290px;
   width: 196px;
   text-align: center;
-`
+`;

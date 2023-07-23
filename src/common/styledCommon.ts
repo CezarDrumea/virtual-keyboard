@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 interface KeyContainerInterface {
   $height?: string;
@@ -9,10 +9,18 @@ interface KeyContainerInterface {
 
 export const KeyContainer = styled.div<KeyContainerInterface>`
   position: relative;
-  width: ${({$width}) => $width ?? '60px'};
-  height: ${({$height}) => $height ?? '60px'};
-  background-color: ${({$bgColor}) => $bgColor ?? 'white'};
-  color: ${({$color}) => $color ?? 'gray'};
+  width: ${({ $width }): string => {
+    return $width ?? '60px';
+  }};
+  height: ${({ $height }): string => {
+    return $height ?? '60px';
+  }};
+  background-color: ${({ $bgColor }): string => {
+    return $bgColor ?? 'white';
+  }};
+  color: ${({ $color }): string => {
+    return $color ?? 'gray';
+  }};
   cursor: pointer;
   border-radius: 4px;
   display: flex;

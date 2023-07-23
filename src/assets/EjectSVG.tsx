@@ -1,4 +1,4 @@
-const EjectSVG = ({ fill }: { fill: string }) => {
+const EjectSVG = ({ fill }: { fill: string }): JSX.Element => {
   return (
     <svg height="14px" viewBox="0 0 448 512">
       <path

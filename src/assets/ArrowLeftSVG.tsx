@@ -1,4 +1,4 @@
-const ArrowLeftSVG = ({ fill }: { fill: string }) => {
+const ArrowLeftSVG = ({ fill }: { fill: string }): JSX.Element => {
   return (
     <svg height="16px" viewBox="0 0 256 512">
       <path

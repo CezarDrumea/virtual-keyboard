@@ -1,9 +1,10 @@
 import { KeyContainer } from '../../common/styledCommon';
 import { ShortContent } from './styled';
 
-const ShortTextKey = ({ children, $height, $width, $bgColor, $color }: keyboardKeyInterface) => {
+const ShortTextKey = (props: KeyboardKeyInterface): JSX.Element => {
+  const { children, ...properties } = props;
   return (
-    <KeyContainer $height={$height} $width={$width} $bgColor={$bgColor} $color={$color}>
+    <KeyContainer {...properties}>
       <ShortContent>{children}</ShortContent>
     </KeyContainer>
   );

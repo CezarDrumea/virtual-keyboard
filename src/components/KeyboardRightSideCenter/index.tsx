@@ -1,15 +1,17 @@
-import LongTextKey from "../LongTextKey";
-import { RightSideContainer } from "./styled"
+import LongTextKey from '../LongTextKey';
+import { RightSideContainer } from './styled';
 
-const KeyboardRightSideCenter = ({rightSideKeys}: {rightSideKeys: string[]}) => {
+const KeyboardRightSideCenter = ({ rightSideKeys }: { rightSideKeys: string[] }): JSX.Element => {
   return (
     <RightSideContainer>
-      {rightSideKeys.map((keyName) => (
-        <LongTextKey key={keyName} $centered $topSticked>
-          {keyName}
-        </LongTextKey>
-      ))}
+      {rightSideKeys.map((keyName) => {
+        return (
+          <LongTextKey key={keyName} $centered $topSticked>
+            {keyName}
+          </LongTextKey>
+        );
+      })}
     </RightSideContainer>
   );
-}
-export default KeyboardRightSideCenter
+};
+export default KeyboardRightSideCenter;

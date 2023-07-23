@@ -8,7 +8,18 @@ const keyboardData = [
   ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', ':', '"'],
   ['z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/'],
   ['Z', 'X', 'C', 'V', 'B', 'N', 'M', '<', '>', '?'],
-  ['print screen', 'scroll lock', 'pause', 'insert', 'home', 'page up', 'delete', 'end', 'page down', 'num lock']
+  [
+    'print screen',
+    'scroll lock',
+    'pause',
+    'insert',
+    'home',
+    'page up',
+    'delete',
+    'end',
+    'page down',
+    'num lock',
+  ],
 ];
 
 export default keyboardData;

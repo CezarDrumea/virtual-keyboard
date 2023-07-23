@@ -5,7 +5,7 @@ import ArrowUpSvg from '../../assets/ArrowUpSVG';
 import { KeyContainer } from '../../common/styledCommon';
 import { ArrowKeysContainer, DoubleKeyContainer } from './styled';
 
-const ArrowKeys = () => {
+const ArrowKeys = (): JSX.Element => {
   return (
     <ArrowKeysContainer>
       <KeyContainer $height="30px" $width="62px">

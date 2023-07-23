@@ -1,11 +1,7 @@
 import Keyboard from './components/Keyboard';
 
-function App() {
-  return (
-    <>
-      <Keyboard />
-    </>
-  );
-}
+const App = (): JSX.Element => {
+  return <Keyboard />;
+};
 
 export default App;
