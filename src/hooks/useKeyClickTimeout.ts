@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { setPressedKeys, setReleasedKeys } from '../store/keyboardSlice';
 
-const useKeyClickTiemout = (keyComputedName: string): VoidFunction => {
+const useKeyClickTimeout = (keyComputedName: string): VoidFunction => {
   const dispatch = useDispatch();
   const timeoutClickRef = useRef<number | null>(null);
   const handleKeyClicked = (): void => {
@@ -32,4 +32,4 @@ const useKeyClickTiemout = (keyComputedName: string): VoidFunction => {
   return handleKeyClicked;
 };
 
-export default useKeyClickTiemout;
+export default useKeyClickTimeout;

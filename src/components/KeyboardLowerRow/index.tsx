@@ -7,7 +7,7 @@ const KeyboardLowerRow = (): JSX.Element => {
 
   return (
     <KeyboardRow>
-      <LongTextKey $height={keyHeight} $bgColor="gray" $color="white" $leftPosition>
+      <LongTextKey $height={keyHeight} $bgGray $color="white" $leftPosition>
         fn
       </LongTextKey>
       <LongTextKey $height={keyHeight}>control</LongTextKey>

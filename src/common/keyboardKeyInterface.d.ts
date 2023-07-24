@@ -2,7 +2,7 @@ interface KeyboardKeyInterface {
   children?: string;
   $height?: string;
   $width?: string;
-  $bgColor?: string;
+  $bgGray?: boolean;
   $color?: string;
   $rightPosition?: boolean;
   $leftPosition?: boolean;

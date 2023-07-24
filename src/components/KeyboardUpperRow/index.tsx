@@ -1,6 +1,7 @@
-import { KeyContainer, KeyboardRow } from '../../common/styledCommon';
-import EjectSVG from '../../assets/EjectSVG';
 import LongTextKey from '../LongTextKey';
+import IconKey from '../IconKey';
+import { KeyboardRow } from '../../common/styledCommon';
+import { ejectSvg } from '../../assets/svgStringCode';
 
 const KeyboardUpperRow = ({ upperRow }: { upperRow: string[] }): JSX.Element => (
   <KeyboardRow>
@@ -9,9 +10,7 @@ const KeyboardUpperRow = ({ upperRow }: { upperRow: string[] }): JSX.Element => 
         {keyName}
       </LongTextKey>
     ))}
-    <KeyContainer $height="30px" $width="62px" $bgColor="gray" id="eject">
-      <EjectSVG fill="white" />
-    </KeyContainer>
+    <IconKey id="Eject" svg={ejectSvg} $height="30px" $width="62px" $bgGray $whiteIcon />
   </KeyboardRow>
 );
 export default KeyboardUpperRow;

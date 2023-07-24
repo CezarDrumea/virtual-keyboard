@@ -13,11 +13,12 @@ const KeyboardLeftSideCenter = ({
   const capsLockEnabled = useTypedSelector((state) => state.keyboard.capsLockEnabled);
   // the function uses the xor operator (^), it does the same thing as (... + ...) % 2
   const getRowIndex = (index: number): number => index + (+shiftPressed ^ +capsLockEnabled);
+  const getNoCapsRowIndex = (index: number): number => index + +shiftPressed;
 
   return (
     <LeftSideContainer>
       <KeyboardRow>
-        {keyboardLayout[getRowIndex(1)].map((keyName) => (
+        {keyboardLayout[getNoCapsRowIndex(1)].map((keyName) => (
           <ShortTextKey key={keyName}>{keyName}</ShortTextKey>
         ))}
         <LongTextKey $width="90px" $rightPosition>
@@ -31,12 +32,18 @@ const KeyboardLeftSideCenter = ({
         {keyboardLayout[getRowIndex(3)].map((keyName) => (
           <ShortTextKey key={keyName}>{keyName}</ShortTextKey>
         ))}
+        {keyboardLayout[getNoCapsRowIndex(5)].map((keyName) => (
+          <ShortTextKey key={keyName}>{keyName}</ShortTextKey>
+        ))}
       </KeyboardRow>
       <KeyboardRow>
         <LongTextKey $width="105px" $leftPosition>
           caps lock
         </LongTextKey>
-        {keyboardLayout[getRowIndex(5)].map((keyName) => (
+        {keyboardLayout[getRowIndex(7)].map((keyName) => (
+          <ShortTextKey key={keyName}>{keyName}</ShortTextKey>
+        ))}
+        {keyboardLayout[getNoCapsRowIndex(9)].map((keyName) => (
           <ShortTextKey key={keyName}>{keyName}</ShortTextKey>
         ))}
         <LongTextKey $width="105px" $rightPosition>
@@ -47,7 +54,10 @@ const KeyboardLeftSideCenter = ({
         <LongTextKey $width="135px" $leftPosition>
           shift
         </LongTextKey>
-        {keyboardLayout[getRowIndex(7)].map((keyName) => (
+        {keyboardLayout[getRowIndex(11)].map((keyName) => (
+          <ShortTextKey key={keyName}>{keyName}</ShortTextKey>
+        ))}
+        {keyboardLayout[getNoCapsRowIndex(13)].map((keyName) => (
           <ShortTextKey key={keyName}>{keyName}</ShortTextKey>
         ))}
         <LongTextKey $width="135px" $rightPosition>

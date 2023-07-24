@@ -41,7 +41,7 @@ const Keyboard = (): JSX.Element => {
       <KeyboardUpperRow upperRow={keyboardLayout[0]} />
       <CenterContainer>
         <KeyboardLeftSideCenter keyboardLayout={keyboardLayout} />
-        <KeyboardRightSideCenter rightSideKeys={keyboardLayout[9]} />
+        <KeyboardRightSideCenter rightSideKeys={keyboardLayout[15]} />
       </CenterContainer>
       <KeyboardLowerRow />
     </KeyboardContainer>
