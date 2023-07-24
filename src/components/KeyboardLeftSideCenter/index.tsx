@@ -10,9 +10,9 @@ const KeyboardLeftSideCenter = ({
   keyboardLayout: string[][];
 }): JSX.Element => {
   const shiftPressed = useTypedSelector((state) => state.keyboard.shiftPressed);
-  const CapsLockEnabled = useTypedSelector((state) => state.keyboard.capsLockEnabled);
-
-  const getRowIndex = (index: number): number => index + (+shiftPressed ^ +CapsLockEnabled);
+  const capsLockEnabled = useTypedSelector((state) => state.keyboard.capsLockEnabled);
+  // the function uses the xor operator (^), it does the same thing as (... + ...) % 2
+  const getRowIndex = (index: number): number => index + (+shiftPressed ^ +capsLockEnabled);
 
   return (
     <LeftSideContainer>

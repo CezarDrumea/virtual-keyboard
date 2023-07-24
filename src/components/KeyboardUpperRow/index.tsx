@@ -9,7 +9,7 @@ const KeyboardUpperRow = ({ upperRow }: { upperRow: string[] }): JSX.Element => 
         {keyName}
       </LongTextKey>
     ))}
-    <KeyContainer $height="30px" $width="62px" $bgColor="gray">
+    <KeyContainer $height="30px" $width="62px" $bgColor="gray" id="eject">
       <EjectSVG fill="white" />
     </KeyContainer>
   </KeyboardRow>

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import keyboardLayout from '../../assets/keyboardLayout';
+import { keyboardLayout } from '../../assets/keyboardData';
 import KeyboardLeftSideCenter from '../KeyboardLeftSideCenter';
 import KeyboardLowerRow from '../KeyboardLowerRow';
 import KeyboardRightSideCenter from '../KeyboardRightSideCenter';
