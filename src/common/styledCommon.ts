@@ -36,7 +36,7 @@ export const KeyContainer = styled.div<KeyContainerInterface>`
       return `
         color: white;
         fill: white;
-        background-color: forestgreen;
+        background-color: mediumseagreen;
       `;
     }
   }}
