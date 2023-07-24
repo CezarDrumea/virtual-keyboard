@@ -7,5 +7,7 @@ interface KeyboardKeyInterface {
   $rightPosition?: boolean;
   $leftPosition?: boolean;
   $centered?: boolean;
-  $topSticked?: boolean;
+  $topCentered?: boolean;
+  $pressed?: boolean;
+  $released?: boolean;
 }

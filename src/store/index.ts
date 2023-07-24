@@ -12,8 +12,6 @@ export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
 
-export const useAppDispatch = (): AppDispatch => {
-  return useDispatch<AppDispatch>();
-};
+export const useAppDispatch = (): AppDispatch => useDispatch<AppDispatch>();
 export const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
 export default store;

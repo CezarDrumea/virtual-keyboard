@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import keyboardData from '../../assets/keyboardData';
+import keyboardLayout from '../../assets/keyboardLayout';
 import KeyboardLeftSideCenter from '../KeyboardLeftSideCenter';
 import KeyboardLowerRow from '../KeyboardLowerRow';
 import KeyboardRightSideCenter from '../KeyboardRightSideCenter';
@@ -11,17 +11,13 @@ import { useTypedSelector } from '../../store';
 
 const Keyboard = (): JSX.Element => {
   const dispatch = useDispatch();
-  const shiftStatus = useTypedSelector((state) => {
-    return state.keyboard.shiftPressed;
-  });
-  const capsLockStatus = useTypedSelector((state) => {
-    return state.keyboard.capsLockEnabled;
-  });
+  const shiftStatus = useTypedSelector((state) => state.keyboard.shiftPressed);
+  const capsLockStatus = useTypedSelector((state) => state.keyboard.capsLockEnabled);
 
   useEffect(() => {
     const handleShiftPress = (e: KeyboardEvent): void => {
-      if (shiftStatus === e.shiftKey) return;
-      dispatch(setShiftPressed(e.shiftKey));
+      if (shiftStatus === e.getModifierState('Shift')) return;
+      dispatch(setShiftPressed(e.getModifierState('Shift')));
     };
     window.addEventListener('keydown', handleShiftPress);
     window.addEventListener('keyup', handleShiftPress);
@@ -37,17 +33,15 @@ const Keyboard = (): JSX.Element => {
       dispatch(setCapsLockClicked(e.getModifierState('CapsLock')));
     };
     window.addEventListener('keydown', handleCapsLockClick);
-    return () => {
-      return window.removeEventListener('keydown', handleCapsLockClick);
-    };
+    return () => window.removeEventListener('keydown', handleCapsLockClick);
   }, [dispatch, capsLockStatus]);
 
   return (
     <KeyboardContainer>
-      <KeyboardUpperRow upperRow={keyboardData[0]} />
+      <KeyboardUpperRow upperRow={keyboardLayout[0]} />
       <CenterContainer>
-        <KeyboardLeftSideCenter keyboardData={keyboardData} />
-        <KeyboardRightSideCenter rightSideKeys={keyboardData[9]} />
+        <KeyboardLeftSideCenter keyboardLayout={keyboardLayout} />
+        <KeyboardRightSideCenter rightSideKeys={keyboardLayout[9]} />
       </CenterContainer>
       <KeyboardLowerRow />
     </KeyboardContainer>

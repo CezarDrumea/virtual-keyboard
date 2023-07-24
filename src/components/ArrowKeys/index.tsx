@@ -5,24 +5,22 @@ import ArrowUpSvg from '../../assets/ArrowUpSVG';
 import { KeyContainer } from '../../common/styledCommon';
 import { ArrowKeysContainer, DoubleKeyContainer } from './styled';
 
-const ArrowKeys = (): JSX.Element => {
-  return (
-    <ArrowKeysContainer>
-      <KeyContainer $height="30px" $width="62px">
-        <ArrowLeftSVG fill="gray" />
+const ArrowKeys = (): JSX.Element => (
+  <ArrowKeysContainer>
+    <KeyContainer $height="30px" $width="62px">
+      <ArrowLeftSVG />
+    </KeyContainer>
+    <DoubleKeyContainer>
+      <KeyContainer $height="32px" $width="62px">
+        <ArrowUpSvg />
       </KeyContainer>
-      <DoubleKeyContainer>
-        <KeyContainer $height="32px" $width="62px">
-          <ArrowUpSvg fill="gray" />
-        </KeyContainer>
-        <KeyContainer $height="32px" $width="62px">
-          <ArrowDownSVG fill="gray" />
-        </KeyContainer>
-      </DoubleKeyContainer>
-      <KeyContainer $height="30px" $width="62px">
-        <ArrowRightSVG fill="gray" />
+      <KeyContainer $height="32px" $width="62px">
+        <ArrowDownSVG />
       </KeyContainer>
-    </ArrowKeysContainer>
-  );
-};
+    </DoubleKeyContainer>
+    <KeyContainer $height="30px" $width="62px">
+      <ArrowRightSVG />
+    </KeyContainer>
+  </ArrowKeysContainer>
+);
 export default ArrowKeys;

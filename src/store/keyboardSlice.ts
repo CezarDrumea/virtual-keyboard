@@ -1,17 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 export interface KeyboardState {
-  default: string[];
-  pressed: string[];
-  released: string[];
+  pressedKeys: {
+    [key: string]: string;
+  };
+  releasedKeys: {
+    [key: string]: string;
+  };
   shiftPressed: boolean;
   capsLockEnabled: boolean;
 }
 
 const initialState: KeyboardState = {
-  default: [],
-  pressed: [],
-  released: [],
+  pressedKeys: {},
+  releasedKeys: {},
   shiftPressed: false,
   capsLockEnabled: false,
 };
@@ -26,9 +28,24 @@ export const keyboardSlice = createSlice({
     setCapsLockClicked: (state, { payload }: { payload: boolean }) => {
       state.capsLockEnabled = payload;
     },
+    setPressedKeys: (
+      state,
+      { payload: { keyName, keyEventName } }: { payload: { keyName: string; keyEventName: string } }
+    ) => {
+      delete state.releasedKeys[keyName];
+      state.pressedKeys[keyName] = keyEventName;
+    },
+    setReleasedKeys: (
+      state,
+      { payload: { keyName, keyEventName } }: { payload: { keyName: string; keyEventName: string } }
+    ) => {
+      delete state.pressedKeys[keyName];
+      state.releasedKeys[keyName] = keyEventName;
+    },
   },
 });
 
-export const { setShiftPressed, setCapsLockClicked } = keyboardSlice.actions;
+export const { setShiftPressed, setCapsLockClicked, setReleasedKeys, setPressedKeys } =
+  keyboardSlice.actions;
 
 export default keyboardSlice.reducer;

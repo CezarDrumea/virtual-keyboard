@@ -4,21 +4,20 @@ export const LongContent = styled.div<{
   $rightPosition?: boolean;
   $leftPosition?: boolean;
   $centered?: boolean;
-  $topSticked?: boolean;
+  $topCentered?: boolean;
 }>`
   position: absolute;
-  bottom: ${({ $centered }): string => {
-    return $centered ? 'auto' : '12px';
-  }};
-  top: ${({ $topSticked }): string => {
-    return $topSticked ? '12px' : 'auto';
-  }};
-  right: ${({ $rightPosition }): string => {
-    return $rightPosition ? '4px' : 'auto';
-  }};
-  left: ${({ $leftPosition }): string => {
-    return $leftPosition ? '4px' : 'auto';
-  }};
+  bottom: ${({ $centered }): string => ($centered ? 'auto' : '12px')};
+  ${({ $topCentered }): string | undefined => {
+    if ($topCentered) {
+      return `
+        bottom: auto;
+        top: 12px;
+      `;
+    }
+  }}
+  right: ${({ $rightPosition }): string => ($rightPosition ? '4px' : 'auto')};
+  left: ${({ $leftPosition }): string => ($leftPosition ? '4px' : 'auto')};
   padding: 0 4px;
   font-size: 15px;
 `;
