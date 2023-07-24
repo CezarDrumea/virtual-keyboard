@@ -26,4 +26,5 @@ Please read the instructions to run the app!
 - Styled Components
 - Airbnb Eslint Config
 
-### P.S. The app is in a work in progress (WIP) state, there might be some bugs
+### P.S. The app is in a work in progress (WIP) state and there might be some bugs. 
+If you find some of this nasty creatures, I'll be grateful if you'd open a bug request.
