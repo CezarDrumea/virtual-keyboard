@@ -42,10 +42,19 @@ export const keyboardSlice = createSlice({
       delete state.pressedKeys[keyName];
       state.releasedKeys[keyName] = keyEventName;
     },
+    emptyReleasedKeys: (state) => {
+      const releasedKeysArray = Object.keys(state.releasedKeys);
+      releasedKeysArray.forEach((releasedKey) => delete state.releasedKeys[releasedKey]);
+    },
   },
 });
 
-export const { setShiftPressed, setCapsLockClicked, setReleasedKeys, setPressedKeys } =
-  keyboardSlice.actions;
+export const {
+  setShiftPressed,
+  setCapsLockClicked,
+  setReleasedKeys,
+  setPressedKeys,
+  emptyReleasedKeys,
+} = keyboardSlice.actions;
 
 export default keyboardSlice.reducer;
