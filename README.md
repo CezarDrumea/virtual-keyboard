@@ -2,12 +2,13 @@
 
 Please read the instructions to run this app!
 
-1. Make sure Node.js https://nodejs.org/en/download/current and Git https://git-scm.com/downloads are installed
-2. `git clone git@github.com:CezarDrumea/virtual-keyboard.git`
-3. `cd virtual-keyboard`
-4. `npm i -g pnpm`
-5. `pnpm i`
-6. `pnpm run dev`
+1. Fetch this repository
+2. Make sure Node.js https://nodejs.org/en/download/current and Git https://git-scm.com/downloads are installed
+3. `git clone git@github.com:CezarDrumea/virtual-keyboard.git`
+4. `cd virtual-keyboard`
+5. `npm i -g pnpm`
+6. `pnpm i`
+7. `pnpm run dev`
 
 ## Features:
 - Press Shift or click Caps Lock to use upper characters
