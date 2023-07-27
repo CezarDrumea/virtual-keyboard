@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface KeyboardState {
+export interface KeyboardStateInterface {
+  keysToRepeat: string[];
   pressedKeys: {
     [key: string]: string;
   };
@@ -11,7 +12,8 @@ export interface KeyboardState {
   capsLockEnabled: boolean;
 }
 
-const initialState: KeyboardState = {
+const initialState: KeyboardStateInterface = {
+  keysToRepeat: [],
   pressedKeys: {},
   releasedKeys: {},
   shiftPressed: false,
@@ -22,39 +24,40 @@ export const keyboardSlice = createSlice({
   name: 'keyboard',
   initialState,
   reducers: {
-    setShiftPressed: (state, { payload }: { payload: boolean }) => {
-      state.shiftPressed = payload;
-    },
-    setCapsLockClicked: (state, { payload }: { payload: boolean }) => {
-      state.capsLockEnabled = payload;
-    },
-    setPressedKeys: (
+    setKeyModifier: (
       state,
-      { payload: { keyName, keyEventName } }: { payload: { keyName: string; keyEventName: string } }
+      {
+        payload: { type, stateProp },
+      }: { payload: { type: boolean; stateProp: 'shiftPressed' | 'capsLockEnabled' } }
     ) => {
-      delete state.releasedKeys[keyName];
-      state.pressedKeys[keyName] = keyEventName;
+      state[stateProp] = type;
     },
-    setReleasedKeys: (
+    setTrigeredKeys: (
       state,
-      { payload: { keyName, keyEventName } }: { payload: { keyName: string; keyEventName: string } }
+      {
+        payload: { keyName, keyEventName, stateProp },
+      }: {
+        payload: {
+          keyName: string;
+          keyEventName: string;
+          stateProp: 'pressedKeys' | 'releasedKeys';
+        };
+      }
     ) => {
-      delete state.pressedKeys[keyName];
-      state.releasedKeys[keyName] = keyEventName;
+      delete state[stateProp === 'pressedKeys' ? 'releasedKeys' : 'pressedKeys'][keyName];
+      state[stateProp][keyName] = keyEventName;
     },
     emptyReleasedKeys: (state) => {
       const releasedKeysArray = Object.keys(state.releasedKeys);
       releasedKeysArray.forEach((releasedKey) => delete state.releasedKeys[releasedKey]);
     },
+    setKeysToRepeat: (state, { payload }: { payload: string }) => {
+      state.keysToRepeat.push(payload);
+    },
   },
 });
 
-export const {
-  setShiftPressed,
-  setCapsLockClicked,
-  setReleasedKeys,
-  setPressedKeys,
-  emptyReleasedKeys,
-} = keyboardSlice.actions;
+export const { setKeyModifier, setTrigeredKeys, emptyReleasedKeys, setKeysToRepeat } =
+  keyboardSlice.actions;
 
 export default keyboardSlice.reducer;

@@ -1,13 +1,15 @@
 import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { setPressedKeys, setReleasedKeys } from '../store/keyboardSlice';
+import { setKeysToRepeat, setTrigeredKeys } from '../store/keyboardSlice';
 
 const useKeyClickTimeout = (keyComputedName: string): VoidFunction => {
   const dispatch = useDispatch();
   const timeoutClickRef = useRef<number | null>(null);
   const handleKeyClicked = (): void => {
+    dispatch(setKeysToRepeat(keyComputedName));
     dispatch(
-      setPressedKeys({
+      setTrigeredKeys({
+        stateProp: 'pressedKeys',
         keyName: keyComputedName,
         keyEventName: keyComputedName,
       })
@@ -19,7 +21,8 @@ const useKeyClickTimeout = (keyComputedName: string): VoidFunction => {
 
     const setReleasedKeysDelayed = (): void => {
       dispatch(
-        setReleasedKeys({
+        setTrigeredKeys({
+          stateProp: 'releasedKeys',
           keyName: keyComputedName,
           keyEventName: keyComputedName,
         })

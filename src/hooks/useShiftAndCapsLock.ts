@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { useTypedSelector } from '../store';
-import { setCapsLockClicked, setShiftPressed } from '../store/keyboardSlice';
+import { setKeyModifier } from '../store/keyboardSlice';
 
 const useShiftAndCapsLock = (): void => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const useShiftAndCapsLock = (): void => {
   useEffect(() => {
     const handleShiftPress = (e: KeyboardEvent): void => {
       if (shiftStatus === e.getModifierState('Shift')) return;
-      dispatch(setShiftPressed(e.getModifierState('Shift')));
+      dispatch(setKeyModifier({ stateProp: 'shiftPressed', type: e.getModifierState('Shift') }));
     };
     window.addEventListener('keydown', handleShiftPress);
     window.addEventListener('keyup', handleShiftPress);
@@ -21,12 +21,14 @@ const useShiftAndCapsLock = (): void => {
   }, [dispatch, shiftStatus]);
 
   useEffect(() => {
-    const handleCapsLockClick = (e: KeyboardEvent): void => {
+    const handleCapsLockPress = (e: KeyboardEvent): void => {
       if (capsLockStatus === e.getModifierState('CapsLock')) return;
-      dispatch(setCapsLockClicked(e.getModifierState('CapsLock')));
+      dispatch(
+        setKeyModifier({ stateProp: 'capsLockEnabled', type: e.getModifierState('CapsLock') })
+      );
     };
-    window.addEventListener('keydown', handleCapsLockClick);
-    return (): void => window.removeEventListener('keydown', handleCapsLockClick);
+    window.addEventListener('keydown', handleCapsLockPress);
+    return (): void => window.removeEventListener('keydown', handleCapsLockPress);
   }, [dispatch, capsLockStatus]);
 };
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
-import { setPressedKeys, setReleasedKeys } from '../store/keyboardSlice';
+import { setKeysToRepeat, setTrigeredKeys } from '../store/keyboardSlice';
 import { useTypedSelector } from '../store';
 
 const useKeyPressTimeout = (keyComputedName: string, otherKeyName = keyComputedName): boolean[] => {
@@ -16,12 +16,21 @@ const useKeyPressTimeout = (keyComputedName: string, otherKeyName = keyComputedN
       if (e.key !== keyComputedName) return;
       clearTimeout(timeoutPressRef.current as number);
       if (pressedKeys[keyComputedName] === keyComputedName) return;
-      dispatch(setPressedKeys({ keyName: keyComputedName, keyEventName: e.key }));
+      dispatch(setKeysToRepeat(e.key));
+      dispatch(
+        setTrigeredKeys({ stateProp: 'pressedKeys', keyName: keyComputedName, keyEventName: e.key })
+      );
     };
     const handleKeyReleased = (e: KeyboardEvent): void => {
       if (e.key !== keyComputedName) return;
       const setReleasedKeysDelayed = (): void => {
-        dispatch(setReleasedKeys({ keyName: keyComputedName, keyEventName: e.key }));
+        dispatch(
+          setTrigeredKeys({
+            stateProp: 'releasedKeys',
+            keyName: keyComputedName,
+            keyEventName: e.key,
+          })
+        );
       };
       timeoutPressRef.current = setTimeout(setReleasedKeysDelayed, 3000);
     };

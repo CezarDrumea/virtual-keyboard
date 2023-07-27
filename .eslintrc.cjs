@@ -38,5 +38,6 @@ module.exports = {
     'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     '@typescript-eslint/no-non-null-assertion': 'off',
     'prettier/prettier': ['error'],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
   },
 };

@@ -3,7 +3,7 @@ import KeyboardLeftSideCenter from '../KeyboardLeftSideCenter';
 import KeyboardLowerRow from '../KeyboardLowerRow';
 import KeyboardRightSideCenter from '../KeyboardRightSideCenter';
 import KeyboardUpperRow from '../KeyboardUpperRow';
-import { CenterContainer, KeyboardContainer } from './styled';
+import { CenterContainer, KeyboardContainer, RepeatBtn, Title, TitleContainer } from './styled';
 import useShiftAndCapsLock from '../../hooks/useShiftAndCapsLock';
 import useDefaultKeyState from '../../hooks/useDefaultKeyState';
 
@@ -12,14 +12,20 @@ const Keyboard = (): JSX.Element => {
   useDefaultKeyState();
 
   return (
-    <KeyboardContainer>
-      <KeyboardUpperRow upperRow={keyboardLayout[0]} />
-      <CenterContainer>
-        <KeyboardLeftSideCenter keyboardLayout={keyboardLayout} />
-        <KeyboardRightSideCenter rightSideKeys={keyboardLayout[15]} />
-      </CenterContainer>
-      <KeyboardLowerRow />
-    </KeyboardContainer>
+    <>
+      <TitleContainer>
+        <Title>Virtual Keyboard</Title>
+        <RepeatBtn type="button">Repeat</RepeatBtn>
+      </TitleContainer>
+      <KeyboardContainer>
+        <KeyboardUpperRow upperRow={keyboardLayout[0]} />
+        <CenterContainer>
+          <KeyboardLeftSideCenter keyboardLayout={keyboardLayout} />
+          <KeyboardRightSideCenter rightSideKeys={keyboardLayout[15]} />
+        </CenterContainer>
+        <KeyboardLowerRow />
+      </KeyboardContainer>
+    </>
   );
 };
 export default Keyboard;
