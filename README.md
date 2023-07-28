@@ -2,7 +2,7 @@
 
 Please read the instructions to run this app!
 
-1. Fetch this repository
+1. Fetch or download this repository
 2. Make sure Node.js https://nodejs.org/en/download/current and Git https://git-scm.com/downloads are installed
 3. `git clone git@github.com:CezarDrumea/virtual-keyboard.git`
 4. `cd virtual-keyboard`
