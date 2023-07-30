@@ -3,7 +3,7 @@
 Please read the instructions to run this app!
 
 1. Make sure Node.js https://nodejs.org/en/download/current and Git https://git-scm.com/downloads are installed
-2. `git clone git@github.com:CezarDrumea/virtual-keyboard.git`
+2. `git clone git@github.com:CezarDrumea/virtual-keyboard.git` or `git clone https://github.com/CezarDrumea/virtual-keyboard.git`
 3. `cd virtual-keyboard`
 4. `npm i -g pnpm`
 5. `pnpm i`
