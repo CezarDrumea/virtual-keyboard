@@ -15,7 +15,10 @@ const Keyboard = (): JSX.Element => {
     <>
       <TitleContainer>
         <Title>Virtual Keyboard</Title>
-        <RepeatBtn type="button">Repeat</RepeatBtn>
+        <RepeatBtn type="button" $disabled>
+          Repeat
+          <div style={{ fontSize: '11px' }}>coming soon</div>
+        </RepeatBtn>
       </TitleContainer>
       <KeyboardContainer>
         <KeyboardUpperRow upperRow={keyboardLayout[0]} />
