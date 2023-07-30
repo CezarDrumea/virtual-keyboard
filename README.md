@@ -26,7 +26,7 @@ Please read the instructions to run this app!
 - React
 - Redux Toolkit
 - Styled Components
-- Airbnb Eslint Config
+- Airbnb ESLint Config
 
 ### P.S. This app is in a work in progress (WIP) state and there might be some bugs. 
 If you find some of this nasty creatures, I'll be grateful if you'd open a bug request.
