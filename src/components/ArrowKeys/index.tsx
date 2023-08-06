@@ -1,4 +1,7 @@
-import { arrowDownSvg, arrowLeftSvg, arrowRightSvg, arrowUpSvg } from '../../assets/svgStringCode';
+import ArrowDownIcon from '../../assets/icons/ArrowDownIcon';
+import ArrowLeftIcon from '../../assets/icons/ArrowLeftIcon';
+import ArrowRightIcon from '../../assets/icons/ArrowRightIcon';
+import ArrowUpIcon from '../../assets/icons/ArrowUpIcon';
 import IconKey from '../IconKey';
 import { ArrowKeysContainer, DoubleKeyContainer } from './styled';
 
@@ -9,12 +12,12 @@ const ArrowKeys = (): JSX.Element => {
   };
   return (
     <ArrowKeysContainer>
-      <IconKey svg={arrowLeftSvg} {...size} id="ArrowLeft" />
+      <IconKey icon={ArrowLeftIcon()} {...size} id="ArrowLeft" />
       <DoubleKeyContainer>
-        <IconKey svg={arrowUpSvg} {...size} id="ArrowUp" />
-        <IconKey svg={arrowDownSvg} {...size} id="ArrowDown" />
+        <IconKey icon={ArrowUpIcon()} {...size} id="ArrowUp" />
+        <IconKey icon={ArrowDownIcon()} {...size} id="ArrowDown" />
       </DoubleKeyContainer>
-      <IconKey svg={arrowRightSvg} {...size} id="ArrowRight" />
+      <IconKey icon={ArrowRightIcon()} {...size} id="ArrowRight" />
     </ArrowKeysContainer>
   );
 };

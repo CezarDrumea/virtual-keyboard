@@ -3,14 +3,14 @@ import useKeyClickTimeout from '../../hooks/useKeyClickTimeout';
 import useKeyPressTimeout from '../../hooks/useKeyPressTimeout';
 
 const IconKey = ({
-  svg,
+  icon,
   $whiteIcon,
   $bgGray,
   id,
   $height,
   $width,
 }: {
-  svg: string;
+  icon: JSX.Element;
   id: string;
   $whiteIcon?: boolean;
   $bgGray?: boolean;
@@ -23,14 +23,15 @@ const IconKey = ({
     <KeyContainer
       $height={$height}
       $width={$width}
-      dangerouslySetInnerHTML={{ __html: svg }}
       $bgGray={$bgGray}
       $whiteIcon={$whiteIcon}
       id={id}
       $pressed={pressed}
       $released={released}
       onClick={handleIconKeyClick}
-    />
+    >
+      {icon}
+    </KeyContainer>
   );
 };
 
