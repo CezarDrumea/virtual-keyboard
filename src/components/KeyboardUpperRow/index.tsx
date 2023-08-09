@@ -10,7 +10,9 @@ const KeyboardUpperRow = ({ upperRow }: { upperRow: string[] }): JSX.Element => 
         {keyName}
       </LongTextKey>
     ))}
-    <IconKey id="Eject" icon={EjectIcon()} $height="30px" $width="62px" $bgGray $whiteIcon />
+    <IconKey id="Eject" $height="30px" $width="62px" $bgGray $whiteIcon>
+      <EjectIcon />
+    </IconKey>
   </KeyboardRow>
 );
 export default KeyboardUpperRow;

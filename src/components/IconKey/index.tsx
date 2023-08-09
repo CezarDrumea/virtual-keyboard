@@ -3,14 +3,14 @@ import useKeyClickTimeout from '../../hooks/useKeyClickTimeout';
 import useKeyPressTimeout from '../../hooks/useKeyPressTimeout';
 
 const IconKey = ({
-  icon,
+  children,
   $whiteIcon,
   $bgGray,
   id,
   $height,
   $width,
 }: {
-  icon: JSX.Element;
+  children: JSX.Element;
   id: string;
   $whiteIcon?: boolean;
   $bgGray?: boolean;
@@ -30,7 +30,7 @@ const IconKey = ({
       $released={released}
       onClick={handleIconKeyClick}
     >
-      {icon}
+      {children}
     </KeyContainer>
   );
 };

@@ -12,12 +12,20 @@ const ArrowKeys = (): JSX.Element => {
   };
   return (
     <ArrowKeysContainer>
-      <IconKey icon={ArrowLeftIcon()} {...size} id="ArrowLeft" />
+      <IconKey {...size} id="ArrowLeft">
+        <ArrowLeftIcon />
+      </IconKey>
       <DoubleKeyContainer>
-        <IconKey icon={ArrowUpIcon()} {...size} id="ArrowUp" />
-        <IconKey icon={ArrowDownIcon()} {...size} id="ArrowDown" />
+        <IconKey {...size} id="ArrowUp">
+          <ArrowUpIcon />
+        </IconKey>
+        <IconKey {...size} id="ArrowDown">
+          <ArrowDownIcon />
+        </IconKey>
       </DoubleKeyContainer>
-      <IconKey icon={ArrowRightIcon()} {...size} id="ArrowRight" />
+      <IconKey {...size} id="ArrowRight">
+        <ArrowRightIcon />
+      </IconKey>
     </ArrowKeysContainer>
   );
 };
