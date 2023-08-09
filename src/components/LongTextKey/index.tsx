@@ -1,7 +1,6 @@
 import { KeyContainer } from '../../common/styledCommon';
 import { LongContent } from './styled';
-import useKeyPressTimeout from '../../hooks/useKeyPressTimeout';
-import useKeyClickTimeout from '../../hooks/useKeyClickTimeout';
+import useKeyTimeout from '../../hooks/useKeyTimeout';
 import { extendedKeysObject, pressedKeysObject } from '../../assets/keyboardData';
 
 const LongTextKey = (props: KeyboardKeyInterface): JSX.Element => {
@@ -10,8 +9,7 @@ const LongTextKey = (props: KeyboardKeyInterface): JSX.Element => {
   const clickedKeyName = extendedKeysObject[children as string];
   const containerProps = { $height, $width, $bgGray, $color };
 
-  const [pressed, released] = useKeyPressTimeout(pressedKeyName, clickedKeyName);
-  const handleKeyClicked = useKeyClickTimeout(clickedKeyName);
+  const [pressed, released, handleKeyClicked] = useKeyTimeout(pressedKeyName, clickedKeyName);
 
   return (
     <KeyContainer

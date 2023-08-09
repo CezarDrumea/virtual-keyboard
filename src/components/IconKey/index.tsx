@@ -1,6 +1,5 @@
 import { KeyContainer } from '../../common/styledCommon';
-import useKeyClickTimeout from '../../hooks/useKeyClickTimeout';
-import useKeyPressTimeout from '../../hooks/useKeyPressTimeout';
+import useKeyTimeout from '../../hooks/useKeyTimeout';
 
 const IconKey = ({
   children,
@@ -17,8 +16,7 @@ const IconKey = ({
   $height: string;
   $width: string;
 }): JSX.Element => {
-  const [pressed, released] = useKeyPressTimeout(id);
-  const handleIconKeyClick = useKeyClickTimeout(id);
+  const [pressed, released, handleIconKeyClick] = useKeyTimeout(id);
   return (
     <KeyContainer
       $height={$height}

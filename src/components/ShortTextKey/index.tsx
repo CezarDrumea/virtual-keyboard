@@ -1,13 +1,11 @@
 import { KeyContainer } from '../../common/styledCommon';
-import useKeyClickTimeout from '../../hooks/useKeyClickTimeout';
-import useKeyPressTimeout from '../../hooks/useKeyPressTimeout';
+import useKeyTimeout from '../../hooks/useKeyTimeout';
 import { ShortContent } from './styled';
 
 const ShortTextKey = (props: KeyboardKeyInterface): JSX.Element => {
   const { children, ...properties } = props;
 
-  const [pressed, released] = useKeyPressTimeout(children as string);
-  const handleKeyClicked = useKeyClickTimeout(children as string);
+  const [pressed, released, handleKeyClicked] = useKeyTimeout(children as string);
 
   return (
     <KeyContainer
