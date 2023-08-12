@@ -47,15 +47,15 @@ const useKeyTimeout = (
   }, [dispatch, pressedKeys, keyComputedName]);
 
   const handleKeyClicked = (): void => {
-    if (keyComputedName === 'CapsLock')
+    if (otherKeyName === 'CapsLock')
       triggerKeyboardEvent('keydown', 'modifierCapsLock', !capsLockEnabled);
-    if (keyComputedName === 'Shift') triggerKeyboardEvent('keydown', 'shiftKey', true);
-    dispatch(setKeysToRepeat(keyComputedName));
+    if (otherKeyName === 'Shift') triggerKeyboardEvent('keydown', 'shiftKey', true);
+    dispatch(setKeysToRepeat(otherKeyName));
     dispatch(
       setTrigeredKeys({
         stateProp: 'pressedKeys',
-        keyName: keyComputedName,
-        keyEventName: keyComputedName,
+        keyName: otherKeyName,
+        keyEventName: otherKeyName,
       })
     );
 
@@ -64,12 +64,12 @@ const useKeyTimeout = (
     }
 
     const setReleasedKeysDelayed = (): void => {
-      if (keyComputedName === 'Shift') triggerKeyboardEvent('keyup', 'shiftKey', false);
+      if (otherKeyName === 'Shift') triggerKeyboardEvent('keyup', 'shiftKey', false);
       dispatch(
         setTrigeredKeys({
           stateProp: 'releasedKeys',
-          keyName: keyComputedName,
-          keyEventName: keyComputedName,
+          keyName: otherKeyName,
+          keyEventName: otherKeyName,
         })
       );
     };
